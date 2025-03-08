@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "Pomodoro Timer",
+    "version": "1.0",
+    "description": "A simple Pomodoro technique timer to boost productivity",
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "background": {
+      "service_worker": "background.js",
+      "type": "module"
+    },
+    "permissions": ["storage", "alarms", "notifications"]
+  }

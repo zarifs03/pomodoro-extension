@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Pomodoro Timer</h1>
+    
+    <div class="timer-display">
+      <div id="timer">25:00</div>
+      <div id="status">Ready to focus</div>
+      <div id="cycle-count">Pomodoro: 0/4</div>
+    </div>
+    
+    <div class="controls">
+      <button id="start-btn">Start</button>
+      <button id="pause-btn" disabled>Pause</button>
+      <button id="reset-btn">Reset</button>
+    </div>
+    
+    <div class="settings">
+      <div class="setting">
+        <label for="work-time">Work (mins)</label>
+        <input type="number" id="work-time" min="1" max="60" value="25">
+      </div>
+      <div class="setting">
+        <label for="short-break">Short Break (mins)</label>
+        <input type="number" id="short-break" min="1" max="30" value="5">
+      </div>
+      <div class="setting">
+        <label for="long-break">Long Break (mins)</label>
+        <input type="number" id="long-break" min="1" max="60" value="15">
+      </div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

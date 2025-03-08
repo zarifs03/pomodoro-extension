@@ -1,0 +1,244 @@
+:root {
+  --work-color: #FF4B6C;
+  --work-gradient: linear-gradient(135deg, #FF4B6C, #FF8C42);
+  --short-break-color: #00C2A8;
+  --short-break-gradient: linear-gradient(135deg, #00C2A8, #01E2C9);
+  --long-break-color: #6C63FF;
+  --long-break-gradient: linear-gradient(135deg, #6C63FF, #8F87FF);
+  --bg-gradient: linear-gradient(135deg, #2B2D42 0%, #1A1B2E 100%);
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  width: 320px;
+  min-height: 460px;
+  padding: 20px;
+  background: var(--bg-gradient);
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add decorative circles */
+body::before, body::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  filter: blur(45px);
+  opacity: 0.15;
+  z-index: 0;
+}
+
+body::before {
+  background: var(--work-color);
+  top: -50px;
+  left: -50px;
+}
+
+body::after {
+  background: var(--long-break-color);
+  bottom: -50px;
+  right: -50px;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.timer-display {
+  width: 100%;
+  padding: 25px;
+  border-radius: 20px;
+  background: var(--work-gradient);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add subtle pattern to timer display */
+.timer-display::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+body[data-mode="work"] .timer-display {
+  background: var(--work-gradient);
+}
+
+body[data-mode="shortBreak"] .timer-display {
+  background: var(--short-break-gradient);
+}
+
+body[data-mode="longBreak"] .timer-display {
+  background: var(--long-break-gradient);
+}
+
+#timer {
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+}
+
+#status {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+#cycle-count {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#start-btn {
+  background: var(--work-gradient);
+  border: none;
+  padding: 13px 26px;
+}
+
+#start-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.settings {
+  width: 100%;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.setting:last-child {
+  margin-bottom: 0;
+}
+
+.setting label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+input[type="number"] {
+  width: 65px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+input[type="number"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container > * {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Responsive hover effects */
+@media (hover: hover) {
+  button:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+}
