@@ -34,9 +34,6 @@ A beautiful and functional Pomodoro Timer extension for Chrome that helps you st
 
 4. Click "Load unpacked" and select the extension directory
 
-### Chrome Web Store
-*(Coming soon)*
-
 ## 🎯 How to Use
 
 1. Click the extension icon in your Chrome toolbar
@@ -59,43 +56,3 @@ Built with:
 - Vanilla JavaScript
 - Chrome Extension APIs
 
-Key Chrome APIs used:
-- `chrome.storage` - For persistent settings and state
-- `chrome.alarms` - For accurate background timing
-- `chrome.notifications` - For session completion alerts
-
-## 🎨 Color Scheme
-
-The extension uses a carefully chosen color palette:
-- Work mode: Red-Orange gradient (`#FF4B6C` to `#FF8C42`)
-- Short break: Teal gradient (`#00C2A8` to `#01E2C9`)
-- Long break: Purple gradient (`#6C63FF` to `#8F87FF`)
-- Background: Dark navy gradient (`#2B2D42` to `#1A1B2E`)
-
-## 📦 Project Structure
-
-```
-pomodoro-ext/
-├── manifest.json      # Extension configuration
-├── popup.html        # Main UI
-├── popup.js          # UI logic
-├── background.js     # Background service worker
-├── styles.css        # Styling
-└── images/          # Icons directory
-    ├── icon16.png
-    ├── icon48.png
-    └── icon128.png
-```
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- Inspired by the Pomodoro Technique by Francesco Cirillo
-- UI design inspired by modern glassmorphism trends 
